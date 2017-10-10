@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import figmaDecorator from '../index'
+import figmaDecorator from '../src/index'
 
 storiesOf('App')
   .addDecorator(figmaDecorator({

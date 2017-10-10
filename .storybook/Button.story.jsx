@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { WithFigma } from '../index'
+import { WithFigma } from '../src/index'
 
 const style = {
       margin: 0,

@@ -1,9 +1,10 @@
 {
   "name": "storybook-addon-figma",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Storybook addon for figma",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "prepublish": "node .scripts/npm-prepublish.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +25,9 @@
   "homepage": "https://github.com/hharnisc/storybook-addon-figma#readme",
   "devDependencies": {
     "@storybook/react": "3.2.12",
+    "babel-cli": "6.26.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-react-app": "3.0.3",
     "react": "16.0.0",
     "react-dom": "16.0.0"
   }
