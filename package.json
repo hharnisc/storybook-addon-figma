@@ -1,0 +1,30 @@
+{
+  "name": "storybook-addon-figma",
+  "version": "0.0.1",
+  "description": "Storybook addon for figma",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hharnisc/storybook-addon-figma.git"
+  },
+  "keywords": [
+    "storybook",
+    "addon",
+    "figma"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hharnisc/storybook-addon-figma/issues"
+  },
+  "homepage": "https://github.com/hharnisc/storybook-addon-figma#readme",
+  "devDependencies": {
+    "@storybook/react": "3.2.12",
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
+  }
+}
