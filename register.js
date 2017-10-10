@@ -7,22 +7,10 @@ import {
   EVENT_ID,
 } from './shared'
 
-const styles = {
-  notesPanel: {
-    margin: 10,
-    fontFamily: 'Arial',
-    fontSize: 14,
-    color: '#444',
-    width: '100%',
-    overflow: 'auto',
-  },
-}
-
 export class FigmaPanel extends React.Component {
   static initialState = {
     embedHost: 'storybook',
-    // TODO: make this empty by default
-    url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
+    url: null,
     allowFullScreen: true,
   }
   static propTypes = {
@@ -62,13 +50,13 @@ export class FigmaPanel extends React.Component {
   }
 
   onAddFigma({
-    embedHost,
     url,
-    allowFullScreen,
+    embedHost=FigmaPanel.initialState.embedHost,
+    allowFullScreen=FigmaPanel.initialState.allowFullScreen,
   }) {
     this.setState({
-      embedHost,
       url,
+      embedHost,
       allowFullScreen,
     })
   }
@@ -78,7 +66,39 @@ export class FigmaPanel extends React.Component {
       url,
       allowFullScreen,
       embedHost,
-    } = this.state;
+    } = this.state
+
+    if (!url) {
+      return (
+        <div
+          style={{
+            margin: '1rem',
+            fontFamily: 'Arial',
+            fontSize: '1rem',
+            color: '#444',
+            width: '100%',
+            overflow: 'auto',
+          }}
+        >
+          <strong>Oh Hey! 👋 Add a Figma design to your story:</strong>
+          <pre>
+          {`
+          import React from 'react'
+          import { storiesOf } from '@storybook/react'
+          import { WithFigma } from 'storybook-addon-figma'
+
+          storiesOf('Button', module)
+            .add('default', () => (
+              <WithFigma
+                url={'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File'}
+              >
+                <button>Hello</button>
+              </WithFigma>
+            ))`}
+          </pre>
+        </div>
+      )
+    }
     return (
       <iframe
         height="100%"
