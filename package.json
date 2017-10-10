@@ -6,6 +6,7 @@
   "scripts": {
     "prepublish": "node .scripts/npm-prepublish.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
+    "deploy-storybook": "storybook-to-ghpages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/hharnisc/storybook-addon-figma#readme",
   "devDependencies": {
     "@storybook/react": "3.2.12",
+    "@storybook/storybook-deployer": "^2.0.0",
     "babel-cli": "6.26.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-react-app": "3.0.3",
