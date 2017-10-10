@@ -15,3 +15,21 @@ export const WithFigma = ({
   })
   return children
 }
+
+export default ({
+  url,
+  allowFullScreen,
+  embedHost,
+}) => getStory => {
+  addons.getChannel().emit(EVENT_ID, {
+    url,
+    allowFullScreen,
+    embedHost,
+  })
+  return getStory()
+};
+
+function checkA11y(storyFn, context) {
+  const channel = addons.getChannel();
+  return manager.wrapStory(channel, storyFn, context);
+}
