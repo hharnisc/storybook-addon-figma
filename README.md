@@ -2,6 +2,8 @@
 
 ![Storybook Addon For Figma](https://raw.githubusercontent.com/hharnisc/storybook-addon-figma/master/storybook-addon-figma.gif)
 
+Live Demo: https://hharnisc.github.io/storybook-addon-figma
+
 ## Quickstart
 
 Install the addon
