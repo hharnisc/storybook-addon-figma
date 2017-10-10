@@ -1,6 +1,6 @@
 # storybook-addon-figma
 
-Embed Figma designs in a storybook panel
+## Quickstart
 
 ```jsx
 import React from 'react'
@@ -17,7 +17,17 @@ storiesOf('Button')
   ))
 ```
 
-Embed a different design on each story
+Register the plugin
+
+```jsx
+// in .storybook/addons.js
+import '@storybook/addon-actions/register'
+// register the Figma addon
+import 'storybook-addon-figma/register'
+```
+
+
+## Embed a different design on each story
 
 ```jsx
 import React from 'react'
@@ -41,7 +51,7 @@ storiesOf('Button')
   ))
 ```
 
-Or use the decorator to put the same design on each story
+## Or use the decorator to put the same design on each story
 
 ```jsx
 import React from 'react'
