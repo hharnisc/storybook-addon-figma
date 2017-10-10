@@ -19,19 +19,25 @@ const styles = {
 }
 
 export class FigmaPanel extends React.Component {
-  static defaultProps = {
+  static initialState = {
     embedHost: 'storybook',
     // TODO: make this empty by default
     url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
-    allowFullscreen: true,
+    allowFullScreen: true,
+  }
+  static propTypes = {
+    channel: PropTypes.object,
+    api: PropTypes.object,
+  }
+  static defaultProps = {
+    channel: {},
+    api: {},
   }
 
   constructor(...args) {
     super(...args)
     this.state = {
-      embedHost: 'storybook',
-      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
-      allowFullscreen: true,
+      ...FigmaPanel.initialState,
     }
     this.onAddFigma = this.onAddFigma.bind(this)
   }
@@ -41,7 +47,7 @@ export class FigmaPanel extends React.Component {
     channel.on(EVENT_ID, this.onAddFigma)
 
     this.stopListeningOnStory = api.onStory(() => {
-      this.onAddFigma('')
+      this.onAddFigma({ ...FigmaPanel.initialState })
     })
   }
 
@@ -55,14 +61,22 @@ export class FigmaPanel extends React.Component {
     channel.removeListener(EVENT_ID, this.onAddFigma)
   }
 
-  onAddFigma(text) {
-    this.setState({ text })
+  onAddFigma({
+    embedHost,
+    url,
+    allowFullScreen,
+  }) {
+    this.setState({
+      embedHost,
+      url,
+      allowFullScreen,
+    })
   }
 
   render() {
     const {
       url,
-      allowFullscreen,
+      allowFullScreen,
       embedHost,
     } = this.state;
     return (
@@ -71,19 +85,10 @@ export class FigmaPanel extends React.Component {
         width="100%"
         frameBorder="0"
         src={`https://www.figma.com/embed?embed_host=${embedHost}&url=${url}`}
-        allowfullscreen={allowFullscreen}
+        allowFullScreen={allowFullScreen}
       />
     )
   }
-}
-
-FigmaPanel.propTypes = {
-  channel: PropTypes.object,
-  api: PropTypes.object,
-}
-FigmaPanel.defaultProps = {
-  channel: {},
-  api: {},
 }
 
 addons.register(ADDON_ID, api => {
