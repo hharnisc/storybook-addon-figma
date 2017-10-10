@@ -1,5 +1,7 @@
 # storybook-addon-figma
 
+![Storybook Addon For Figma](https://raw.githubusercontent.com/hharnisc/storybook-addon-figma/master/storybook-addon-figma.gif)
+
 ## Quickstart
 
 ```jsx
