@@ -4,6 +4,23 @@
 
 ## Quickstart
 
+Install the addon
+
+```sh
+npm i --save-dev storybook-addon-figma
+```
+
+Register the plugin
+
+```jsx
+// in .storybook/addons.js
+import '@storybook/addon-actions/register'
+// register the Figma addon
+import 'storybook-addon-figma/register'
+```
+
+Link a Figma design to your story
+
 ```jsx
 import React from 'react'
 import { storiesOf } from '@storybook/react'
@@ -19,14 +36,6 @@ storiesOf('Button')
   ))
 ```
 
-Register the plugin
-
-```jsx
-// in .storybook/addons.js
-import '@storybook/addon-actions/register'
-// register the Figma addon
-import 'storybook-addon-figma/register'
-```
 
 
 ## Embed a different design on each story
