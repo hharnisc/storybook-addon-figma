@@ -80,3 +80,39 @@ storiesOf('App')
     <App />
   ))
 ```
+
+## Show Figma design in right panel
+
+If you find that the Figma panel at the bottom is not big enough to fit your designs, it is possible to move the panel to the right of the window instead, where it is possible to give it more space. This requires the [@storybook/addons-options](https://github.com/storybooks/storybook/tree/master/addons/options) addon. Note however that it is only possible to do this for **all** stories at once, and will move all addon panels to the right. A simple setup is shown here.
+
+Install the addon
+
+```sh
+npm install --save-dev @storybook/addon-options
+```
+
+Register the options addon in your `addons.js`
+
+```jsx
+// in .storybook/addons.js
+import '@storybook/addon-actions/register'
+import 'storybook-addon-figma/register'
+// register the options addon
+import '@storybook/addon-options/register';
+```
+
+Import and use the `setOptions` function in your `config.js` file
+
+```jsx
+// in .storybook/config.js
+import * as storybook from '@storybook/react';
+// import the options function
+import { setOptions } from '@storybook/addon-options';
+
+// set option to show panel in right side
+setOptions({
+  downPanelInRight: true,
+});
+
+storybook.configure(() => require('./stories'), module);
+```
