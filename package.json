@@ -32,5 +32,8 @@
     "babel-preset-react-app": "3.0.3",
     "react": "16.0.0",
     "react-dom": "16.0.0"
+  },
+  "peerDependencies": {
+    "vue": ">= 2.0.0"
   }
 }
