@@ -4,7 +4,7 @@
   "description": "Storybook addon for figma",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "node .scripts/npm-prepublish.js",
+    "prepare": "node .scripts/npm-prepublish.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "test": "echo \"Error: no test specified\" && exit 1"
