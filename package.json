@@ -8,7 +8,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "export NODE_ENV=production && ./node_modules/.bin/babel src --out-dir dist"
+    "build": "export NODE_ENV=production && ./node_modules/.bin/babel src --out-dir dist",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
