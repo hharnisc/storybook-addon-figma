@@ -80,6 +80,7 @@ export class FigmaPanel extends React.Component {
             color: '#444',
             width: '100%',
             overflow: 'auto',
+            display: active ? 'block' : 'none'
           }}
         >
           <strong>Oh Hey! 👋 Add a Figma design to your story:</strong>
