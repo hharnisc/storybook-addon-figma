@@ -9,7 +9,8 @@
     "deploy-storybook": "storybook-to-ghpages",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "export NODE_ENV=production && ./node_modules/.bin/babel src --out-dir dist",
-    "install": "npm run build"
+    "install": "npm run build",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
