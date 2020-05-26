@@ -23,6 +23,8 @@ import 'storybook-addon-figma/register'
 
 Link a Figma design to your story
 
+## With React
+
 ```jsx
 import React from 'react'
 import { storiesOf } from '@storybook/react'
@@ -38,6 +40,23 @@ storiesOf('Button')
   ))
 ```
 
+## With Vue
+
+```jsx
+import Vue from 'vue'
+import { storiesOf } from '@storybook/vue'
+import { WithFigma } from 'storybook-addon-figma/vue'
+
+storiesOf('Button')
+  .add('With Figma', () => ({
+    components: { WithFigma },
+    template: `
+      <with-figma url="https://www.figma.com/file/LbcvMJxDtshDmYtdyfJfkA72/Button-Primary">
+        <button>My Button</button>
+      </with-figma>
+    `
+  }))
+```
 
 
 ## Embed a different design on each story

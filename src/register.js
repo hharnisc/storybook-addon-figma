@@ -68,6 +68,8 @@ export class FigmaPanel extends React.Component {
       embedHost,
     } = this.state
 
+    const { active } = this.props;
+
     if (!url) {
       return (
         <div
@@ -78,6 +80,7 @@ export class FigmaPanel extends React.Component {
             color: '#444',
             width: '100%',
             overflow: 'auto',
+            display: active ? 'block' : 'none'
           }}
         >
           <strong>Oh Hey! 👋 Add a Figma design to your story:</strong>
@@ -103,6 +106,8 @@ export class FigmaPanel extends React.Component {
       <iframe
         height="100%"
         width="100%"
+        // hide but save in memory
+        style={{display: active ? 'block' : 'none'}}
         frameBorder="0"
         src={`https://www.figma.com/embed?embed_host=${embedHost}&url=${url}`}
         allowFullScreen={allowFullScreen}
@@ -113,7 +118,9 @@ export class FigmaPanel extends React.Component {
 
 addons.register(ADDON_ID, api => {
   addons.addPanel(PANEL_ID, {
-    title: 'Figma',
-    render: () => <FigmaPanel channel={addons.getChannel()} api={api} />,
-  })
+    title: "Figma",
+    render: ({ active, key }) => (
+      <FigmaPanel key={key} active={active} channel={addons.getChannel()} api={api} />
+    )
+  });
 })
